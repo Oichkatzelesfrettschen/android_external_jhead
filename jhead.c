@@ -26,67 +26,21 @@
     #include <io.h>
 #endif
 
-static int FilesMatched;
-static int FileSequence;
 
 static const char * CurrentFile;
 
-static const char * progname;   // program name for error messages
 
 //--------------------------------------------------------------------------
 // Command line options flags
-static int TrimExif = FALSE;        // Cut off exif beyond interesting data.
-static int RenameToDate = 0;        // 1=rename, 2=rename all.
 #ifdef _WIN32
 static int RenameAssociatedFiles = FALSE;
 #endif
-static char * strftime_args = NULL; // Format for new file name.
-static int Exif2FileTime  = FALSE;
-static int DoModify     = FALSE;
-static int DoReadAction = FALSE;
        int ShowTags     = FALSE;    // Do not show raw by default.
-static int Quiet        = FALSE;    // Be quiet on success (like unix programs)
        int DumpExifMap  = FALSE;
-static int ShowConcise  = FALSE;
-static int CreateExifSection = FALSE;
-static char * ApplyCommand = NULL;  // Apply this command to all images.
-static char * FilterModel = NULL;
-static int    ExifOnly    = FALSE;
-static int    PortraitOnly = FALSE;
-static time_t ExifTimeAdjust = 0;   // Timezone adjust
-static time_t ExifTimeSet = 0;      // Set exif time to a value.
-static char DateSet[11];
-static unsigned DateSetChars = 0;
-static unsigned FileTimeToExif = FALSE;
 
-static int DeleteComments = FALSE;
-static int DeleteExif = FALSE;
-static int DeleteIptc = FALSE;
-static int DeleteXmp = FALSE;
-static int DeleteUnknown = FALSE;
-static char * ThumbSaveName = NULL; // If not NULL, use this string to make up
-                                    // the filename to store the thumbnail to.
 
-static char * ThumbInsertName = NULL; // If not NULL, use this string to make up
-                                    // the filename to retrieve the thumbnail from.
-
-static int RegenThumbnail = FALSE;
-
-static char * ExifXferScrFile = NULL;// Extract Exif header from this file, and
-                                    // put it into the Jpegs processed.
-
-static int EditComment = FALSE;     // Invoke an editor for editing the comment
 static int SupressNonFatalErrors = FALSE; // Wether or not to pint warnings on recoverable errors
 
-static char * CommentSavefileName = NULL; // Save comment to this file.
-static char * CommentInsertfileName = NULL; // Insert comment from this file.
-static char * CommentInsertLiteral = NULL;  // Insert this comment (from command line)
-
-static int AutoRotate = FALSE;
-static int ZeroRotateTagOnly = FALSE;
-
-static int ShowFileInfo = TRUE;     // Indicates to show standard file info
-                                    // (file name, file size, file date)
 
 
 #ifdef MATTHIAS

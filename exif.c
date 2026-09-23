@@ -1180,7 +1180,7 @@ void process_EXIF (unsigned char * ExifSection, unsigned int length)
     printf("Thumbnail %s end", (ImageInfo.ThumbnailAtEnd ? "at" : "NOT at"));
 #endif
     if (DumpExifMap){
-        unsigned a,b;
+        unsigned a;
         printf("Map: %05d- End of exif\n",length-8);
 //        for (a=0;a<length-8;a+= 10){
 //            printf("Map: %05d ",a);

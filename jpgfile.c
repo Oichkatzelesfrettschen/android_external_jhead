@@ -337,7 +337,7 @@ int ReadJpegSectionsFromBuffer (unsigned char* buffer, unsigned int buffer_size,
     for(;;){
         int itemlen;
         int marker = 0;
-        int ll,lh, got;
+        int ll,lh;
         uchar * Data;
 
         CheckSectionsAllocated();
@@ -879,7 +879,6 @@ int WriteJpegToBuffer(unsigned char* buffer, unsigned int buffer_size)
     }
 
     int writeOk = FALSE;
-    int nWrite = 0;
     // Write all the misc sections
     for (a=0;a<SectionsRead-1;a++){
         buffer[pos++] = 0xff;
